@@ -1,5 +1,5 @@
 const { getAuthor, getAuthors, getBooks } = require('../db/data-helpers');
-const request = requires('supertest');
+const request = require('supertest');
 const app = require('../lib/app');
 const Author = require('../lib/models/Author');
 const Book = require('../lib/models/Book');

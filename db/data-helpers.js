@@ -23,7 +23,7 @@ afterAll(() => {
 const prepare = model => JSON.parse(JSON.stringify(model));
 const prepareAll = models => models.map(prepare);
 
-const files = fs.readdirSync('../lib/models');
+const files = fs.readdirSync('./lib/models');
 const getters = files
   .map(file => require(`../lib/models/${file}`))
   .filter(Model => Model.prototype instanceof mongoose.Model)
