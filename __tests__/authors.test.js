@@ -41,6 +41,20 @@ describe('author routes', () => {
         });
       });
   });
+
+  it('updates an author', async() => {
+    const author = await getAuthor();
+
+    return request(app)
+      .patch(`/api/v1/authors/${author._id}`)
+      .send({ name: 'robot author' })
+      .then(res => {
+        expect(res.body).toEqual({
+          ...author, 
+          name: 'robot author'
+        });
+      });
+  });
   
   it('deletes an author', async() => {
     const author = await getAuthor();
