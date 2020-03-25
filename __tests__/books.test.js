@@ -24,5 +24,19 @@ describe('book routes', () => {
       });
   });
 
+  it('finds a book by id', async() => {
+    const author = await getAuthor();
+    const book = await getBook({ authorId: author._id });
+
+    return request(app)
+      .get(`/api/v1/books/${book._id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          ...book,
+          authorId: author
+        });
+      });
+  });
+
 });
 
