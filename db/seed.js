@@ -2,7 +2,7 @@ const Book = require('../lib/models/Book');
 const Author = require('../lib.models/Author');
 const chance = require('chance').Chance();
 
-module.exports = async({ authorsToCreate = 5, booksToCreate = 115 } = {}) => {
+module.exports = async({ authorsToCreate = 5, booksToCreate = 100 } = {}) => {
   const authorNames = ['Nayyirah Waheed', 'Adrienne Marie Brown', 'Audre Lorde', 'Chimamanda Ngozi Adichie', 'Yaa Gyasi'];
 
   const genres = ['horror', 'fiction', 'nonfiction', 'scifi'];
