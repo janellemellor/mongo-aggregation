@@ -31,7 +31,7 @@ const getters = files
     return {
       ...acc,
       [`get${Model.modelName}`]: query => Model.findOne(query).then(prepare),
-      [`get${Model.modelName}`]: query => Model.find(query).then(prepareAll)
+      [`get${Model.modelName}s`]: query => Model.find(query).then(prepareAll)
     };
   }, {});
 
