@@ -20,5 +20,19 @@ describe('author routes', () => {
       });
   });
 
+  it('finds an author by id', async() => {
+    const author = await getAuthor();
+    const books = await getBooks({ authorId: author._id });
+
+    return request(app)
+      .get(`/api/v1/authors/${author._id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          ...author,
+          books
+        });
+      });
+  });
+
 
 });
