@@ -52,5 +52,15 @@ describe('book routes', () => {
       });
   });
 
+  it('deletes a book', async() => {
+    const book = await getBook();
+
+    return request(app)
+      .delete(`/api/v1/books/${book._id}`)
+      .then(res => {
+        expect(res.body).toEqual(book);
+      });
+  });
+
 });
 
