@@ -38,5 +38,19 @@ describe('book routes', () => {
       });
   });
 
+  it('updates a book', async() => {
+    const book = await getBook();
+
+    return request(app)
+      .patch(`/api/v1/books/${book._id}`)
+      .send({ title: 'books books books' })
+      .then(res => {
+        expect(res.body).toEqual({
+          ...book, 
+          title: 'books books books'
+        });
+      });
+  });
+
 });
 
